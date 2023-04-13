@@ -23,6 +23,8 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -64,10 +66,10 @@
             <div id="myNav" class="overlay">
               <div class="overlay-content">
                 <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="house.html">Service's</a>
+                <a href="#section-about">ABOUT</a>
+                <a href="#section-services">Service's</a>
               
-                <a href="contact.html">CONTACT US</a>
+                <a href="#contact_section">CONTACT US</a>
               </div>
             </div>
           </div>
@@ -90,7 +92,7 @@
                 Elevate your business with a custom website designed just for you! Our expert team offers personalized solutions for businesses, freelancers, and entrepreneurs to create a unique and professional online presence. Let us help you stand out from the crowd and establish a strong brand image with a sleek and user-friendly website. Take your business to new heights with our custom website designing services.
               </p>
               <div class="btn-box">
-                <a href="" class="">
+                <a href="#contact_section" class="">
                   Limited offer: 50% off on first 10 websites! Get yours now!
                 </a>
               </div>
@@ -129,7 +131,7 @@
 
   <!-- about section -->
 
-  <section class="about_section layout_padding-bottom">
+  <section class="about_section layout_padding-bottom" id="section-about">
     <div class="square-box">
       <img src="images/square.png" alt="">
     </div>
@@ -150,7 +152,7 @@
             <p>
               At Tech Global, we provide dynamic technology solutions to help businesses and individuals harness the power of technology. Our services include website design and development, software development, and IT consulting. With a team of highly skilled professionals dedicated to delivering innovative, customized solutions, we empower our clients to achieve their goals using the latest technology. To get in touch with us, you can reach us via email at techglobal4india@gmail.com or give us a call at +91 8921544467.
             </p>
-            <a href="">
+            <a href="#contact_section">
               Limited offer: 50% off on first 10 websites! Get yours now!
             </a>
           </div>
@@ -163,7 +165,7 @@
 
   <!-- sale section -->
 
-  <section class="sale_section layout_padding-bottom">
+  <section class="sale_section layout_padding-bottom" id="section-services">
     <div class="container-fluid">
       <div class="heading_container">
         <h2>
@@ -610,7 +612,7 @@
 
   <!-- contact section -->
 
-  <section class="contact_section ">
+  <section class="contact_section " id="contact_section">
     <div class="container">
       <div class="heading_container">
         <h2>
@@ -629,18 +631,18 @@
         </div> -->
         <div class="col-lg-4 col-md-5 ">
           <div class="form_container" >
-            <form action="">
+            <form id="submit-form" action="">
               <div>
-                <input type="text" placeholder="Name" />
+                <input type="text" name="name" placeholder="Name" />
               </div>
               <div>
-                <input type="email" placeholder="Email" />
+                <input type="email" name="email" placeholder="Email" />
               </div>
               <div>
-                <input type="text" placeholder="Phone Number" />
+                <input type="text" name="phone number" placeholder="Phone Number" />
               </div>
               <div>
-                <input type="text" class="message-box" placeholder="Message" />
+                <input type="text" name="message" class="message-box" placeholder="Message" />
               </div>
               <div class="d-flex ">
                 <button>
@@ -689,7 +691,7 @@
                 <img src="images/mail.png" width="18px" alt="">
               </div>
               <p>
-                techglobal4india@gmail.com
+                techglobalforindia@gmail.com
               </p>
             </div>
           </div>
@@ -756,6 +758,9 @@
               </button>
             </form> -->
             <div class="social_box">
+              <a href="https://www.instagram.com/mytechglobal4india/">
+                <img src="images/instagram.png" alt="">
+              </a>
               <a href="">
                 <img src="images/fb.png" alt="">
               </a>
@@ -768,6 +773,8 @@
               <a href="">
                 <img src="images/youtube.png" alt="">
               </a>
+
+             
             </div>
           </div>
         </div> 
@@ -794,7 +801,25 @@
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
 
+  <script>
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbxtXakmKro00dcNsHanFcBkJt3CoGJz01siQ3zdsSD1orNdw7jPDU-1diBeiuoxrJiY/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                alert("Form submitted successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
 
+            }
+        })
+    })
+</script>
 </body>
 
 </html>
